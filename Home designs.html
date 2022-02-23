@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Image Slider </title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+
+            }
+            .banner{
+                width:100%;
+                height: 100vh;
+                position: relative;
+                overflow: hidden;
+            }
+            .slider{
+                width: 100%;
+                height: 100vh;
+                position: absolute;
+                top: 0;
+            }
+           #slideimg{
+               width: 100%;
+               height: 100vh;
+               animation:zoom 3s linear infinite;
+           }   
+           @keyframes zoom{
+              0%{ transform: scale(1.3);}
+              15%{ transform: scale(1);}
+               80%{ transform: scale(1);}
+              100%{ transform: scale(1.3);}
+              
+
+           }
+           .overlay{
+               width: 100%;
+               height: 100vh;
+               position: absolute;
+               background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+               top: 0;
+           }
+           .navabar{
+               width: 85%;
+               
+               display: flex;
+               align-items: center;
+               margin: 35px auto;
+           }
+           .menu-icons{
+               flex: auto;
+               color: #fff;
+               align-items: center;
+               margin-top: 20px;
+               text-align: right;
+               
+           }
+           .content{
+               width: 60%;
+               margin: 160px auto;
+               text-align: center;
+               color: white;
+           }
+           .content h1{
+               font-size: 50px;
+               text-shadow: 15px 15px 20px rgb(23, 150, 201);
+               
+           }
+           .content h3{
+               width: 80%;
+               margin: 20px auto 100px;
+               font-weight: 100;
+               line-height: 25px;
+               text-shadow: 5px 5px 10px red;
+           }
+            button{
+               width: 200px;
+               padding: 15px 0;
+               text-align:center ;
+               margin: 0 10px;
+               border-radius: 10px;
+               font-weight: bold;
+               border: 2px solid black;
+               background: rgb(233, 128, 90);
+               color: black;
+               cursor: pointer;
+               
+           }
+           button:hover{
+               background: rgb(158, 149, 65);
+               border: 2px solid #fff;
+           }
+        </style>
+    </head>
+    <body onload="slider()">
+        <div class="banner"> 
+          <div class="slider">
+              <img src="image13.jpg" id="slideimg">
+          </div>
+          <div class="overlay">
+            <div class="navbar">
+               <div class="menu-icons">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <i class="fa fa-bars" aria-hidden="true"></i>
+               </div>
+            </div>
+            <div class="content">
+               <h1> <i> Home Designs </i> </h1> <br>
+               <h3> People love to see transformations, and as an interior designer, you have the opportunity to share a lot of before and after photos. </h3>
+                  <div>
+                      <button type="button"> WATCH MORE </button>
+                      <button type="button"> SUBSCRIBE </button>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <script>
+            var slideImage=document.getElementById("slideImg");
+            var images=new Array(  "image12.jpg");
+
+            var len = images.length;
+            var i=0;
+
+            function slider()
+            {
+                if(i> len-1)
+                {
+                    i=0;
+                }
+                slideImg.src=images[i];
+                i++;
+                setTimeout('slider()',3000);
+
+            }
+            
+        </script>
+
+    </body>
+</html>
